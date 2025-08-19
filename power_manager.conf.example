@@ -1,0 +1,25 @@
+# === CONFIGURATION FILE FOR POWER_MANAGER.SH ===
+
+# A space-separated list of IP addresses for the sentinel hosts.
+# These should be reliable devices on grid power (not on the UPS).
+# Example: Smart plugs, IoT devices, a printer, etc.
+SENTINEL_HOSTS="192.168.1.10 192.168.1.11 192.168.1.12"
+
+# A space-separated list of servers to wake up after power is restored.
+# Format: "IP_ADDRESS;MAC_ADDRESS"
+# Ensure MAC addresses use colons.
+WAKE_HOSTS="192.168.1.100;00:11:22:AA:BB:CC 192.168.1.101;DD:EE:FF:33:44:55"
+
+# The time in minutes to wait after power is restored before sending WoL packets.
+# This prevents waking servers during unstable power conditions (flickering).
+WOL_DELAY_MINUTES=5
+
+# The name of the virtual UPS as defined in /etc/nut/ups.conf
+UPS_NAME="ups"
+
+# The path to the dummy-ups driver's state file
+UPS_STATE_FILE="/var/run/nut/virtual.device"
+
+# (Optional) The broadcast address for the WoL packets.
+# If commented out, the script will try to use a default. It's best to set this.
+BROADCAST_IP="192.168.1.255"
