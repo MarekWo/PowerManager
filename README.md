@@ -1,6 +1,6 @@
 # Power Manager for Dummy NUT Server
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A standalone Bash script that simulates a NUT (Network UPS Tools) server's status based on network conditions. It's designed for homelabs and small offices where a UPS provides battery backup but lacks a USB/serial port for monitoring.
 
@@ -95,6 +95,33 @@ To update the script to the latest version, simply run the included update scrip
 cd /opt/power-manager
 ./update.sh
 ```
+
+### Log Management (Logrotate)
+
+The `power_manager.sh` script writes to `/var/log/power_manager.log` every time it runs (by default, every minute). Over time, this can cause the log file to grow to a very large size.
+
+To prevent uncontrolled log growth, it is highly recommended to set up automatic log rotation using the standard system utility `logrotate`. The configuration below will archive the log file daily, compress it, and delete any archives older than 7 days.
+
+1.  Create a new configuration file for `logrotate`:
+
+    ```bash
+    sudo nano /etc/logrotate.d/power-manager
+    ```
+
+2.  Paste the following content into the file:
+
+    ```
+    /var/log/power_manager.log {
+        daily
+        rotate 7
+        missingok
+        notifempty
+        compress
+        delaycompress
+    }
+    ```
+
+After saving the file, no further action is required. The system automatically runs `logrotate` once a day, so your log file will now be managed automatically.
 
 ### License
 
