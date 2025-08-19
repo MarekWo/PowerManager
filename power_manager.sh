@@ -110,7 +110,7 @@ else
                     # Check if the target server is offline before sending WoL packet
                     if ! $PING_CMD -c 1 -W 1 "$IP" &> /dev/null; then
                         log "info" "Server $IP is offline. Sending WoL packet to $MAC."
-                        $WAKEONLAN_CMD -i "${BROADCAST_IP:-192.168.131.255}" "$MAC"
+                        $WAKEONLAN_CMD -i "${BROADCAST_IP:-192.168.1.255}" "$MAC"
                     else
                         log "info" "Server $IP is already online."
                     fi
