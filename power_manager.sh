@@ -2,7 +2,7 @@
 
 ################################################################################
 #
-# Power Manager for Dummy NUT Server (v1.0.0)
+# Power Manager for Dummy NUT Server (v1.0.1)
 #
 # Author: Marek Wojtaszek (Enhancements by Gemini)
 # GitHub: https://github.com/MarekWo/
@@ -37,8 +37,8 @@ log() {
     # 1. Log to the local file for detailed debugging
     echo "$timestamp - ${level^^} - $msg" >> "$LOG_FILE"
 
-    # 2. Log to syslog for system-wide integration
-    logger -p "user.$level" -t "PowerManager" "$msg"
+    # 2. Log to syslog for system-wide integration    
+    logger -p "user.$level" -t "PowerManager" -- "$msg"
 }
 
 # === SCRIPT START ===
