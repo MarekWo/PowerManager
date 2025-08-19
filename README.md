@@ -38,6 +38,7 @@ This project is the perfect companion to the **[UPS_monitor](https://github.com/
 1.  A dedicated, low-power machine that is **connected to the UPS** to run this script (e.g., a Raspberry Pi or an old laptop).
 2.  A working **dummy NUT server** configured on that machine. A complete guide can be found in [this excellent Wiki guide](https://wiki.wojtaszek.it/pl/home/apps/nut/nut-server-install).
 3.  A few reliable, always-on devices with static IPs on your network that are **NOT** connected to the UPS.
+4. `bash`, `cron`, `curl` and `git` packages installed.
 
 ### Installation
 
@@ -46,9 +47,10 @@ This project is the perfect companion to the **[UPS_monitor](https://github.com/
     git clone https://github.com/MarekWo/PowerManager.git /opt/power-manager
     cd /opt/power-manager
     ```
-2.  Make the main script executable.
+2.  Make the scripts executable.
     ```bash
     chmod +x power_manager.sh
+    chmod +x update.sh
     ```
 
 ### Configuration
