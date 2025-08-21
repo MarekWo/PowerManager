@@ -2,6 +2,12 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+# **IMPORTANT!**
+
+This project was deprecated. Please check the **[UPS Power Management Server (Docker Edition)](https://github.com/MarekWo/UPS_Server_Docker)** project instead.
+
+--
+
 A standalone Bash script that simulates a NUT (Network UPS Tools) server's status based on network conditions. It's designed for homelabs and small offices where a UPS provides battery backup but lacks a USB/serial port for monitoring.
 
 ## About This Project
